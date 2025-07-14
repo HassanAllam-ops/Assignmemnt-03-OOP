@@ -126,6 +126,24 @@ namespace Assignmemnt_03_OOP
             //    Console.WriteLine(new string('-', 40));
             //}
             #endregion
+
+            #region Part 01 (Q 04)
+            //Employee[] EmpArr = new Employee[3];
+            //
+            //EmpArr[0] = new Employee(1, "Alice", 'F', SecurityLevel.DBA, 8000.00m, new HiringDate(12, 6, 2020));
+            //EmpArr[1] = new Employee(2, "Bob", 'M', SecurityLevel.Guest, 3000.00m, new HiringDate(1, 1, 2023));
+            //EmpArr[2] = new Employee(3, "Charlie", 'M', SecurityLevel.SecurityOfficer, 10000.00m, new HiringDate(15, 3, 2018));
+            //
+            //
+            //Array.Sort(EmpArr, (e1, e2) => e1.HireDate.ToDateTime().CompareTo(e2.HireDate.ToDateTime()));
+            //
+            //Console.WriteLine("Sorted Employees by Hire Date:");
+            //foreach (var emp in EmpArr)
+            //{
+            //    Console.WriteLine(emp);
+            //}
+            // The number of unboxing and boxing = 0
+            #endregion
         }
 
 
