@@ -7,13 +7,14 @@ namespace Assignmemnt_03_OOP
         Guest,
         Developer,
         Secretary,
-        DBA
+        DBA,
+        SecurityOfficer
     }
 
     public class Employee
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int ID { get; private set; }
+        public string Name { get; private set; }
         private char gender;
         public char Gender
         {
@@ -30,9 +31,23 @@ namespace Assignmemnt_03_OOP
                 }
             }
         }
-        public SecurityLevel Security { get; set; }
-        public decimal Salary { get; set; }
-        public DateTime HireDate { get; set; }
+        public SecurityLevel Security { get; private set; }
+        public decimal Salary
+        {
+            get => Salary;
+            private set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Salary Cannot Be Negative");
+                }
+                else
+                {
+                    Salary = value;
+                }
+            }
+        }
+        public DateTime HireDate { get; private set; }
 
         public Employee(int id, string name, char gendr, SecurityLevel security, decimal salary, DateTime hireDate)
         {
@@ -54,50 +69,65 @@ namespace Assignmemnt_03_OOP
     }
     #endregion
 
-    #region Part 02 (Q 02)
-   //ublic class HiringDate
-   //
-   //   public int Day { get; set; }
-   //   public int Month { get; set; }
-   //   public int Year { get; set; }
-   //
-   //   public HiringDate(int day, int month, int year)
-   //   {
-   //       if (!IsValidDate(day, month, year))
-   //           throw new ArgumentException("invalid date provided");
-   //       Day = day;
-   //       Month = month;
-   //       Year = year;
-   //   }
-   //
-   //   private bool IsValidDate(int day, int month, int year)
-   //   {
-   //       try
-   //       {
-   //           DateTime temp = new DateTime(year, month, day);
-   //           return true;
-   //       }
-   //       catch
-   //       {
-   //           return false;
-   //       }
-   //
-   //   }
-   //
-   //   public override string ToString()
-   //   {
-   //     DateTime date = new DateTime(Year, Month, Day);
-   //       return date.ToShortDateString();
-   //   }
-   //
-        #endregion
+    #region Part 01 (Q 02)
+    public class HiringDate
+    {
+        public int Day { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
 
-        internal class Program
+        public HiringDate(int day, int month, int year)
         {
-            static void Main(string[] args)
-            {
-
-            }
+            if (!IsValidDate(day, month, year))
+                throw new ArgumentException("invalid date provided");
+            Day = day;
+            Month = month;
+            Year = year;
         }
-    
+
+        private bool IsValidDate(int day, int month, int year)
+        {
+            try
+            {
+                DateTime temp = new DateTime(year, month, day);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public override string ToString()
+        {
+            DateTime date = new DateTime(Year, Month, Day);
+            return date.ToShortDateString();
+        }
+    }
+    #endregion
+
+
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            #region Part 01 (Q 03)
+            //Employee[] EmpArr = new Employee[3];
+            //
+            //EmpArr[0] = new Employee(101, "Alice", 'F', SecurityLevel.DBA, 90000, new DateTime(2020, 5, 12));
+            //EmpArr[1] = new Employee(102, "Bob", 'M', SecurityLevel.Guest, 40000, new DateTime(2023, 3, 5));
+            //EmpArr[2] = new Employee(103, "Charlie", 'M', SecurityLevel.SecurityOfficer, 100000, new DateTime(2019, 11, 20));
+            //
+            //foreach (var emp in EmpArr)
+            //{
+            //    Console.WriteLine(emp.ToString());
+            //    Console.WriteLine(new string('-', 40));
+            //}
+            #endregion
+        }
+
+
+    }
 }
