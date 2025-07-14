@@ -199,7 +199,7 @@ namespace Assignmemnt_03_OOP
             // The number of unboxing and boxing = 0
             #endregion
 
-            #region Part 01 (Q 05)
+            #region Part 01 (Q 05) implement
             //Book[] library = new Book[2];
             //
             //library[0] = new EBook("Digital Fortress", "Dan Brown", "978-0-312-99542-3", 5.2);
